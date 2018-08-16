@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "org.loader.module2module"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+//   ------------------------------模板配置-------------------
+    //路由库
+    compile project(':router')
+    //注解依赖
+    compile project(':annohelper')
+    apt project(':annohelper')
+
+//  ------------------------------模板配置-------------------
+
+    if (!debug.toBoolean()) {
+        compile project(':testalib')
+        compile project(':testblib')
+    }else{
+        compile project(':basis')
+    }
+}
