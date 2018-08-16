@@ -19,12 +19,3 @@ Syntax highlighted code block
     router：路由调度封装库。负责处理各组件module的交互逻辑。
     testalib：测试A组件modul。
     testblib：测试A组件modul。
-
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/baichunqiu/Router/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
