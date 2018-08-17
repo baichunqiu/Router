@@ -5,25 +5,40 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <!-- 统一切换Theme-->
+    <!-- 统一切换Theme right in left out-->
+    <style name="IMTheme.Transparent_Right" parent="@style/IMTheme.Basic">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation_right_to_left</item>
+    </style>
+
+    <!-- Theme left in right out-->
     <style name="IMTheme.Transparent" parent="@style/IMTheme.Basic">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+
+        <item name="android:windowAnimationStyle">@style/Animation_left_to_right</item>
     </style>
 
     <!-- 主界面Theme 锁定-->
     <style name="MainPageTheme" parent="android:style/Theme.NoTitleBar">
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <item name="android:windowAnimationStyle">@style/Animation_right_to_left</item>
     </style>
 
     <!--切换动画-->
-    <style name="activityAnimation" parent="@android:style/Animation">
+    <style name="Animation_right_to_left" parent="@android:style/Animation">
         <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
         <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
         <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
         <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="Animation_left_to_right" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_right_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_left_out</item>
     </style>
 
     <style name="CustomProgressDialog" parent="@style/CustomDialog">

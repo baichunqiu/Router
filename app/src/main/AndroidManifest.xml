@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:name=".application.RouterApplication"
         android:supportsRtl="true"
-        android:theme="@style/IMTheme.Transparent">
+        android:theme="@style/IMTheme.Transparent_Right">
         <activity android:name=".MainActivity"
             android:theme="@style/MainPageTheme">
             <intent-filter>
