@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.basis.common.RouterConfig;
+import org.basis.constant.RouterConfig;
 import org.router.Router;
 import org.basis.utils.Logger;
 import org.router.annoation.AutoRouter;

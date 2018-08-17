@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import org.basis.common.RouterConfig;
+import org.basis.constant.RouterConfig;
 import org.basis.utils.Logger;
 import org.router.Router;
 

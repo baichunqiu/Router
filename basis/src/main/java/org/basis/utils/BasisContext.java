@@ -2,7 +2,7 @@ package org.basis.utils;
 
 import android.app.Application;
 
-public class BaseContext {
+public class BasisContext {
 
     private static Application sInstance;
 
