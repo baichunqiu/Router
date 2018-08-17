@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--listview的id-->
+    <item name="mListView" type="id" />
+    <!--有数据显示的所有控件根布局id -->
+    <item name="show_data" type="id" />
+    <!--布局-->
+    <!--<item name="no_data" type="layout" />-->
+    <!--<item name="load_fail" type="layout" />-->
+    <!--titlebar id-->
+  <!--  <item name="layout_title_bar" type="layout" />-->
+    <item name="ll_back_titlebar" type="id" />
+    <item name="iv_left_titlebar" type="id" />
+    <item name="tv_title_titlebar" type="id" />
+    <item name="ll_right_titlebar" type="id" />
+    <item name="tv_right_titlebar" type="id" />
+</resources>

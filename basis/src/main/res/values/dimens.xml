@@ -1,5 +1,32 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--font size-->
+    <dimen name="font_size_20sp">20sp</dimen>
+    <dimen name="font_size_19sp">19sp</dimen>
+    <dimen name="font_size_18sp">18sp</dimen>
+    <dimen name="font_size_17sp">17sp</dimen>
+    <dimen name="font_size_16sp">16sp</dimen>
+    <dimen name="font_size_15sp">15sp</dimen>
+    <dimen name="font_size_14sp">14sp</dimen>
+    <dimen name="font_size_13sp">13sp</dimen>
+    <dimen name="font_size_12sp">12sp</dimen>
+    <dimen name="font_size_11sp">11sp</dimen>
+    <dimen name="font_size_10sp">10sp</dimen>
+
+    <!--margin 边距 小边距使用 大边距转换成percent -->
+    <dimen name="yms_dimens_1.0_px">0.5dp</dimen>
+    <dimen name="yms_dimens_2.0_px">1.0dp</dimen>
+    <dimen name="yms_dimens_3.0_px">1.5dp</dimen>
+    <dimen name="yms_dimens_4.0_px">2.0dp</dimen>
+    <dimen name="yms_dimens_5.0_px">2.5dp</dimen>
+    <dimen name="yms_dimens_6.0_px">3.0dp</dimen>
+    <dimen name="yms_dimens_7.0_px">3.5dp</dimen>
+    <dimen name="yms_dimens_9.0_px">4.0dp</dimen>
+    <dimen name="yms_dimens_10.0_px">5.0dp</dimen>
+    <dimen name="yms_dimens_12.0_px">6.0dp</dimen>
+    <dimen name="yms_dimens_15.0_px">7.5dp</dimen>
+    <dimen name="yms_dimens_20.0_px">10.0dp</dimen>
+    <dimen name="yms_dimens_25.0_px">12.5dp</dimen>
+    <dimen name="yms_dimens_30.0_px">15.0dp</dimen>
+    <dimen name="yms_dimens_40.0_px">20.0dp</dimen>
+    <dimen name="yms_dimens_50.0_px">25.0dp</dimen>
 </resources>

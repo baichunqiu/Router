@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_basis_bg"
+    android:orientation="vertical">
+
+    <org.basis.network.view.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top" />
+
+    <org.basis.network.view.PullToRefreshListView
+        android:id="@+id/prlv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:orientation="vertical"
+        android:scrollbars="none" />
+
+    <TextView
+        android:id="@+id/select_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/yms_dimens_20.0_px"
+        android:layout_marginLeft="@dimen/yms_dimens_50.0_px"
+        android:layout_marginRight="@dimen/yms_dimens_50.0_px"
+        android:layout_marginTop="@dimen/yms_dimens_20.0_px"
+        android:background="@color/color_green_blue"
+        android:gravity="center"
+        android:paddingBottom="@dimen/yms_dimens_20.0_px"
+        android:paddingTop="@dimen/yms_dimens_20.0_px"
+        android:text="master"
+        android:textColor="@color/color_white"
+        android:textSize="15sp" />
+
+</LinearLayout>

@@ -19,6 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+//    resourcePrefix "basis_"
 }
 
 dependencies {
@@ -28,4 +29,10 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26+'
     testCompile 'junit:junit:4.12'
+    //网络库
+    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.google.code.gson:gson:2.8.1'
+    //图片加载库
+    compile 'com.squareup.picasso:picasso:2.3.2'
 }

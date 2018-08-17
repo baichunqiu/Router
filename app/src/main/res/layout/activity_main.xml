@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="org.loader.module2module.MainActivity">
+    android:paddingBottom="@dimen/yms_dimens_25.0_px"
+    android:paddingLeft="@dimen/yms_dimens_25.0_px"
+    android:paddingRight="@dimen/yms_dimens_25.0_px"
+    android:paddingTop="@dimen/yms_dimens_25.0_px"
+    android:gravity="center"
+    android:background="@color/color_basis_bg"
+    android:orientation="vertical">
 
     <TextView
         android:onClick="click"
@@ -17,4 +18,13 @@
         android:textSize="50sp"
         android:layout_centerInParent="true"
         android:text="CLICK" />
-</RelativeLayout>
+
+    <TextView
+        android:onClick="clickA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_marginTop="@dimen/yms_dimens_50.0_px"
+        android:layout_centerInParent="true"
+        android:text="ACTIVITY" />
+</LinearLayout>

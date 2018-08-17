@@ -1,3 +1,18 @@
 <resources>
     <string name="click_notice">clicked!</string>
+    <!--刷新-->
+    <string name="net_loading">loading...</string>
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">松开可以刷新</string>
+    <string name="load_full">已加载全部</string>
+    <string name="no_data">暂无数据</string>
+    <string name="load_fail">加载失败！</string>
+    <string name="more">加载中...</string>
+
+    <string name="pull_down_refresh">下拉刷新</string>
+    <string name="last_update">上次更新</string>
+    <string name="str_loading">加载中...</string>
+    <string name="str_refresh_in">正在刷新...</string>
+    <string name="str_losen_to_refresh">松开立即刷新</string>
+
 </resources>
