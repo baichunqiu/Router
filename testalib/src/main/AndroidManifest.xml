@@ -6,7 +6,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
-        <activity android:name=".ui.AActivity" />
+        <activity android:name=".ui.AActivity"
+            android:theme="@style/IMTheme.Transparent_Left"/>
 
     </application>
 

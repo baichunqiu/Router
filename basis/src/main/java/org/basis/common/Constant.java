@@ -11,7 +11,7 @@ import java.io.File;
  * @Description: NetConstant 公共常量值
  */
 public class Constant {
-    public final static String ACTION_APP_EXIT = "org_app_exit";
+    public final static String ACTION_APP_EXIT = "_org_app_exit";
 
     /*****************存储路径 path*****************/
     public final static String ROOT = Environment.getExternalStorageDirectory()+ File.separator;

@@ -8,7 +8,7 @@ import org.basis.CommonHelper;
 import org.basis.network.ParseBean;
 import org.basis.network.Parser;
 import org.basis.network.listener.net.callback.ICallback;
-import org.basis.network.tools.NetUtil;
+import org.basis.network.utils.NetUtil;
 import org.basis.network.view.LoadDialog;
 import org.basis.utils.Logger;
 import org.json.JSONObject;

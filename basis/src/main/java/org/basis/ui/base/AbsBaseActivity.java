@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 
 import org.basis.common.Constant;
+import org.basis.utils.BroadcastManager;
+import org.basis.utils.Logger;
 
 /**
  * @author: BaiCQ
@@ -18,6 +20,7 @@ import org.basis.common.Constant;
  *              给子类提供自定义action的buildFilterAction入口和广播处理的onReceive入口
  */
 public abstract class AbsBaseActivity extends FragmentActivity implements IRefresh {
+    protected final String TAG = this.getClass().getSimpleName();
     public String mPackageName;
     // 退出应用的广播接受者
     private BroadcastReceiver basisReceiver;
@@ -25,27 +28,24 @@ public abstract class AbsBaseActivity extends FragmentActivity implements IRefre
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (null != basisReceiver) {
-            unregisterReceiver(basisReceiver);
-        }
+        BroadcastManager.unregisterLocalReceiver(basisReceiver);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         basisReceiver = new BasisReceiver();
         mPackageName = this.getPackageName();
-        IntentFilter intentfilter = new IntentFilter();
-        intentfilter.addAction(mPackageName + Constant.ACTION_APP_EXIT);
-        buildFilterAction(intentfilter);
         //注册统一广播 处理退出app的功能
-        registerReceiver(basisReceiver, intentfilter);
+        BroadcastManager.registerLocalReceiver(basisReceiver,new String[]{mPackageName + Constant.ACTION_APP_EXIT});
     }
 
     public class BasisReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
+            Logger.e(TAG,"BasisReceiver : action = "+action);
             if ((mPackageName + Constant.ACTION_APP_EXIT).equals(action)) {//退出
                 finish();
             }else{

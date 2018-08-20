@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import org.basis.UIUtil;
+import org.basis.common.Constant;
 import org.basis.common.RouterConfig;
 import org.basis.ui.base.BaseActivity;
+import org.basis.utils.BroadcastManager;
 import org.basis.utils.Logger;
 import org.basis.utils.ToastManager;
 import org.router.Router;

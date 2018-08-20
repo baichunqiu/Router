@@ -7,7 +7,7 @@ import android.view.View;
 import org.basis.network.listener.net.callback.BaseListCallback;
 import org.basis.network.listener.refresh.defauleinstance.DefaultLoadListener;
 import org.basis.network.listener.refresh.defauleinstance.DefaultRefreshListener;
-import org.basis.network.tools.NetUtil;
+import org.basis.network.utils.NetUtil;
 import org.basis.network.view.LoadDialog;
 import org.basis.network.view.PullToRefreshListView;
 import org.basis.ui.base.BaseActivity;

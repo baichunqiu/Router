@@ -1,4 +1,4 @@
-package org.basis.network.tools;
+package org.basis.network.utils;
 
 
 import com.google.gson.Gson;

@@ -9,8 +9,8 @@ import org.basis.CommonHelper;
 import org.basis.network.ParseBean;
 import org.basis.network.Parser;
 import org.basis.network.listener.net.callback.IListCallback;
-import org.basis.network.tools.GsonUtil;
-import org.basis.network.tools.NetUtil;
+import org.basis.network.utils.GsonUtil;
+import org.basis.network.utils.NetUtil;
 import org.basis.network.view.LoadDialog;
 import org.json.JSONObject;
 

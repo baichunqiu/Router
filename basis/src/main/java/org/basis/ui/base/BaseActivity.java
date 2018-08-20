@@ -19,7 +19,6 @@ import org.loader.utilslib.R;
  * @Description: 基类 AbsBaseActivity的空实现
  */
 public class BaseActivity extends AbsBaseActivity {
-    protected final String TAG = this.getClass().getSimpleName();
     public BaseActivity mActivity;
     protected TitleBar titleBar;
 

@@ -13,7 +13,7 @@
     </style>
 
     <!-- Theme left in right out-->
-    <style name="IMTheme.Transparent" parent="@style/IMTheme.Basic">
+    <style name="IMTheme.Transparent_Left" parent="@style/IMTheme.Basic">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
 

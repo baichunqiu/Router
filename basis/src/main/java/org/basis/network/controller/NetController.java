@@ -3,7 +3,7 @@ package org.basis.network.controller;
 
 import org.basis.network.listener.net.callback.BaseCallback;
 import org.basis.network.listener.net.callback.BaseListCallback;
-import org.basis.network.tools.NetUtil;
+import org.basis.network.utils.NetUtil;
 import org.basis.network.view.LoadDialog;
 
 import java.util.List;
