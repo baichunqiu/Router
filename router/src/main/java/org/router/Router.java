@@ -7,6 +7,7 @@ import android.util.Log;
 
 import org.router.rule.ActivityRule;
 import org.router.rule.Rule;
+import org.router.rule.ServiceRule;
 
 import java.io.Serializable;
 
@@ -93,6 +94,17 @@ public class Router {
                 }
             }
             ctx.startActivity(in);
+        }
+        return isRouter;
+    }
+
+    public static boolean startService(Context ctx, String pattern) {
+        pattern = ServiceRule.SERVICE_SCHEME + pattern;
+        Log.e("Router", "pattern : "+pattern );
+        boolean isRouter = Router.resolveRouter(pattern);
+        if (isRouter){
+            Intent in = Router.invoke(ctx,pattern);
+            ctx.startService(in);
         }
         return isRouter;
     }

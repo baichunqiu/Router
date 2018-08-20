@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void click(View view) {
-        boolean is = Router.startActivity(MainActivity.this, RouterConfig.PATT_AActivity, true);
+        boolean is = Router.startService(MainActivity.this, RouterConfig.PATT_TestService);
         Logger.e(TAG, "is = " + is);
         ToastManager.show(is + "");
     }

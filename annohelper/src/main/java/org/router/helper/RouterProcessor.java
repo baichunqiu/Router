@@ -129,39 +129,39 @@ public class RouterProcessor extends AbstractProcessor {
     private void writeComponentFile(String componentName) throws Exception {
         String className = Config.FILE_PREFIX + componentName;
         JavaFileObject javaFileObject = mFiler.createSourceFile(className);
-
         PrintWriter printWriter = new PrintWriter(javaFileObject.openWriter());
-
+        //写入包名
         printWriter.println("package " + Config.PACKAGE_NAME + ";");
-
+        //写入系统组件的import配置
         printWriter.println("import android.app.Activity;");
         printWriter.println("import android.app.Service;");
         printWriter.println("import android.content.BroadcastReceiver;");
-
+        //写入import：Router和ActivityRule、ServiceRule、ReceiverRule 的导入配置
+        printWriter.println("import "+ROUTER_PATH+".Router;");
+        printWriter.println("import "+RULE_PATH+".ActivityRule;");
+        printWriter.println("import "+RULE_PATH+".ServiceRule;");
+        printWriter.println("import "+RULE_PATH+".ReceiverRule;");
+        //写入类名
         printWriter.println("public class " + className + " {");
+        //写入router（）方法
         printWriter.println("public static void router() {");
-
-
+        //写入@StaticRouter配置
         for(Map.Entry<String, String> entry : mStaticRouterMap.entrySet()) {
-            printWriter.println(ROUTER_PATH + ".Router.router(\"" + entry.getKey()
-                    +"\", "+entry.getValue()+".class);");
+            printWriter.println("Router.router(\"" + entry.getKey() +"\", "+entry.getValue()+".class);");
         }
+        //写入@AutoRouter配置
         // Router.router(ActivityRule.ACTIVITY_SCHEME + "shop.main", ShopActivity.class);
-        // org.router +  .Router.router(  +org.router.rule+ .ActivityRule.ACTIVITY_SCHEME + "org.loader.bbslib.BBSActivity", org.loader.bbslib.BBSActivity.class);
         for (String klass : mAutoRouterList) {
             printWriter.println("if (Activity.class.isAssignableFrom(" + klass + ".class)) {");
-            printWriter.println(ROUTER_PATH + ".Router.router(" +RULE_PATH + ".ActivityRule.ACTIVITY_SCHEME + \""
-                    +klass+"\", " + klass + ".class);");
+            printWriter.println("Router.router(ActivityRule.ACTIVITY_SCHEME + \"" +klass+"\", " + klass + ".class);");
             printWriter.println("}");
 
             printWriter.println("else if (Service.class.isAssignableFrom(" + klass + ".class)) {");
-            printWriter.println(ROUTER_PATH +".Router.router(" +RULE_PATH + ".ServiceRule.SERVICE_SCHEME + \""
-                    +klass+"\", " + klass + ".class);");
+            printWriter.println("Router.router(ServiceRule.SERVICE_SCHEME + \"" +klass+"\", " + klass + ".class);");
             printWriter.println("}");
 
             printWriter.println("else if (BroadcastReceiver.class.isAssignableFrom(" + klass + ".class)) {");
-            printWriter.println(ROUTER_PATH +".Router.router(" + RULE_PATH + ".ReceiverRule.RECEIVER_SCHEME + \""
-                    +klass+"\", "+klass+".class);");
+            printWriter.println("Router.router(ReceiverRule.RECEIVER_SCHEME + \"" +klass+"\", "+klass+".class);");
             printWriter.println("}");
         }
 
