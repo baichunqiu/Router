@@ -27,4 +27,12 @@
         android:layout_marginTop="@dimen/yms_dimens_50.0_px"
         android:layout_centerInParent="true"
         android:text="ACTIVITY" />
+
+    <org.basis.network.view.progress.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp" />
 </LinearLayout>
