@@ -4,7 +4,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import org.basis.adapter.AbsBaseAdapter;
+import org.basis.network.controller.IOperator;
 import org.basis.network.controller.UIController;
+import org.basis.network.view.LoadDialog;
 import org.basis.ui.base.BaseFragment;
 import org.loader.utilslib.R;
 
@@ -17,76 +19,84 @@ import java.util.Map;
  * @className: AbsListFragment
  * @Description:
  */
-public abstract class AbsListFragment<T> extends BaseFragment {
-
+public abstract class AbsListFragment<T> extends BaseFragment implements IOperator<T> {
     private UIController<T> mController;
 
     @Override
-    public int setLayoutId() {
-        return R.layout.fragment_abs_list;
+    public void onDestroy() {
+        super.onDestroy();
+        if (null != mController) mController.release();
     }
 
     @Override
-    public void initView(final View parent) {
+    protected View onCreateView(LayoutInflater inflater) {
+        View parent = inflater.inflate(R.layout.fragment_abs_list,null);
         mController = new BaseUIController<T>(mActivity,parent,this);
         mController.init();
-    }
-
-    @Override
-    public void getNetData(boolean showDialog, boolean isRefresh) {
-        if (null == mController) return;
-        mController.getNetData(showDialog, isRefresh);
-    }
-
-    public void getNetData(boolean isRefresh, String url, Map<String, String> params, Class<T> tClass, String dialogMsg) {
-        if (null == mController) return;
-        mController.getNetData(isRefresh, url, params, tClass, buildDailog(dialogMsg));
+        return parent;
     }
 
     /**
-     * 预处理数据
-     * @param netData
-     * @return
+     * 重新获取数据
+     * @param isShow    是否显示进度条
+     * @param isRefresh 是否刷新
      */
-    public List<T> preHandleData(List<T> netData) {
-        return netData;
+    @Override
+    public final void getNetData(boolean isShow, boolean isRefresh) {
+        if (null != mController) mController.getNetData(isShow, isRefresh);
+    }
+
+    public void getNetData(boolean isShow, boolean isRefresh, String mUrl, Map<String, String> params, Class<T> tClass) {
+        getNetData(isRefresh, mUrl, params, tClass, isShow? buildDailog("") : null);
+    }
+
+    public void getNetData(boolean isShow, boolean isRefresh, String mUrl, Map<String, String> params, Class<T> tClass, String mDialogMsg) {
+        getNetData(isRefresh, mUrl, params, tClass, isShow? buildDailog(mDialogMsg) : null);
+    }
+
+    /**
+     * @param isRefresh  是否刷新
+     * @param mUrl       mUrl
+     * @param params     参数 注意：不包含page
+     * @param tClass     解析的实体
+     * @param loadDialog 进度条
+     */
+    public void getNetData(boolean isRefresh, String mUrl, Map<String, String> params, Class<T> tClass, LoadDialog loadDialog) {
+        if (null != mController) mController.getNetData(isRefresh, mUrl, params, tClass, loadDialog);
     }
 
     public void onRefreshData(List<T> netData, boolean isRefresh) {
-        if (null == mController) return;
-        mController._onRefreshData(netData,isRefresh);
+        if (null != mController) mController._onRefreshData(netData,isRefresh);
+    }
+
+    public void showViewType(int type) {
+        if (null != mController) mController.showViewType(type);
+    }
+
+    /**
+     * 接口解析数据后子线程预处理数据
+     * @param netData
+     */
+    @Override
+    public List<T> onPreHandleData(List<T> netData) {
+        return netData;
     }
 
     /**
      * 适配器设置数据前 处理数据 有可能类型转换
      * @param netData
-     * @return
      */
-    public List preRefreshData(List<T> netData) {
+    @Override
+    public List onPreRefreshData(List<T> netData) {
         return netData;
     }
 
-    public void showViewType(int type) {
-        if (null == mController) return;
-        mController.showViewType(type);
-    }
-
-    /**
-     * init ContentView  mController.init() 执行
-     * @return
-     */
-    public abstract View addContentView(LayoutInflater inflater);
-
-    /**
-     * 初始化之类控件  mController.init() 执行
-     * @param parent
-     * @return
-     */
-    public abstract void initChildView(View parent);
+    @Override
+    public abstract View onCreateContentView(LayoutInflater inflater);
 
     /**
      * 设置适配器  mController.init() 执行
-     * @return
      */
+    @Override
     public abstract AbsBaseAdapter setAdapter();
 }

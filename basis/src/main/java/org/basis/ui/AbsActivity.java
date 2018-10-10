@@ -2,11 +2,11 @@
 package org.basis.ui;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import org.basis.network.controller.NetController;
-import org.basis.network.view.TitleBar;
 import org.basis.ui.base.BaseActivity;
 import org.loader.utilslib.R;
 
@@ -20,67 +20,67 @@ import java.util.Map;
  * @Description: 没有列表的activity
  */
 public abstract class AbsActivity<T> extends BaseActivity {
-    public LinearLayout ll_contain;
+    protected LinearLayout ll_contain;
     private View contentView;
     private NetController<T> mController;
-    public TitleBar titleBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abs);
-        titleBar = findViewById(R.id.titleBar);
-        _initNetController();
         _init();
-
     }
 
-    public void _initNetController(){
+    public void _init() {
+        titleBar = findViewById(R.id.titleBar);
+        ll_contain = findViewById(R.id.ll_content);
+        //初始化内容视图
+        contentView = onCreateView(LayoutInflater.from(mActivity));
+        ll_contain.addView(contentView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
         mController = new NetController<T>() {
             @Override
             public void _onResponceCallBack(String url, int state, String msg) {
-                onResponceCallBack(url,state,msg);
+                onResponceCallBack(url, state, msg);
             }
 
             @Override
             public void _bindData(List<T> mNetData) {
-                if (null != mNetData && !mNetData.isEmpty()){
+                if (null != mNetData && !mNetData.isEmpty()) {
                     bindData(mNetData.get(0));
                 }
             }
         };
     }
 
-    public void _init() {
-        //初始化内容视图
-        contentView = initContentView();
-        ll_contain = (LinearLayout)findViewById(R.id.ll_content);
-        ll_contain.addView(contentView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        initView(contentView);
-    }
-
+    /**
+     * post有结果集请求
+     * @param mUrl
+     * @param params
+     * @param tClass
+     * @param mDialogMsg
+     */
     public void getNetData(final String mUrl, final Map<String, String> params, Class<T> tClass, final String mDialogMsg) {
-        if (null == mController){
-            return;
-        }
-        mController.postArr(mUrl,params,tClass, buildDailog(mDialogMsg));
+        if (null != mController) mController.postArr(mUrl, params, tClass, buildDailog(mDialogMsg));
     }
 
+    /**
+     * post只有状态没有结果集的请求
+     * @param mUrl
+     * @param params
+     * @param mDialogMsg
+     */
     public void postOperate(final String mUrl, final Map<String, String> params, final String mDialogMsg) {
-        if (null == mController){
-            return;
-        }
-        mController.post(mUrl,params, buildDailog(mDialogMsg));
+        if (null != mController) mController.post(mUrl, params, buildDailog(mDialogMsg));
     }
-
-
 
     /**
      * 接口响应回调
-     * @param url 接口连接
-     * @param state 是否成功
-     * @param msg 服务器返回msg
+     * @param url   接口url 多种请求 根据url匹配响应回调
+     * @param stateCode 状态 1：成功 其他：失败
+     * @param msg   回调info信息
      */
-    public void onResponceCallBack(String url,int state,String msg){
+    public void onResponceCallBack(String url, int stateCode, String msg) {
     }
 
     /**
@@ -90,12 +90,5 @@ public abstract class AbsActivity<T> extends BaseActivity {
     public void bindData(T t) {
     }
 
-    /**
-     * init ContentView
-     * @return
-     */
-    public abstract View initContentView();
-
-
-    public abstract void initView(View parent);
+    protected abstract View onCreateView(LayoutInflater inflater);
 }

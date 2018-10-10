@@ -10,16 +10,12 @@ import org.basis.ui.AbsListActivity;
 public class NetMasterActivity extends AbsListActivity<ResponBean> {
 
     @Override
-    public View addContentView(LayoutInflater inflater) {
+    public View onCreateContentView(LayoutInflater inflater) {
+        getDataFromNet(true,true);
         return inflater.inflate(R.layout.activity_net_master, null);
     }
 
-    @Override
-    public void initView(View parent) {
-        getNetData(true,true);
-    }
-
-    public void getNetData(boolean isWait, boolean isRefresh) {
+    public void getDataFromNet(boolean isWait, boolean isRefresh) {
         // 作品评论列表
         String url ="https://alaya2.sabinetek.com/response/list";
         super.getNetData(isWait,isRefresh,url,null,ResponBean.class);

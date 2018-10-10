@@ -14,7 +14,7 @@ import org.basis.network.view.progress.sprite.Sprite;
 import org.loader.utilslib.R;
 
 /**
- * Created by ybq.
+ * Created by BaiCQ.
  */
 public class SpinKitView extends ProgressBar {
 
@@ -54,7 +54,7 @@ public class SpinKitView extends ProgressBar {
     @Override
     public void setIndeterminateDrawable(Drawable d) {
         if (!(d instanceof Sprite)) {
-            throw new IllegalArgumentException("this d must be instanceof Sprite");
+            throw new IllegalArgumentException("this drawable must be instanceof Sprite");
         }
         setIndeterminateDrawable((Sprite) d);
     }

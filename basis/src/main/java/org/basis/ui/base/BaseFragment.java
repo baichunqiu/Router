@@ -21,9 +21,8 @@ import org.loader.utilslib.R;
  */
 public abstract class BaseFragment extends Fragment implements IRefresh {
     protected final String TAG = this.getClass().getSimpleName();
-    public BaseActivity mActivity;
-    private View rootView;
-    public TitleBar titleBar;
+    protected BaseActivity mActivity;
+    protected TitleBar titleBar;
 
     @Override
     public void onAttach(Context context) {
@@ -33,23 +32,8 @@ public abstract class BaseFragment extends Fragment implements IRefresh {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(setLayoutId(), null);
-        titleBar = rootView.findViewById(R.id.titleBar);
-        initView(rootView);
-        return rootView;
+        return onCreateView(inflater);
     }
-
-    /**
-     * 布局的资源ID
-     * @return
-     */
-    public abstract int setLayoutId();
-
-    /**
-     * 初始化view
-     * @param parent fragment的根布局
-     */
-    public abstract void initView(View parent);
 
     /**
      * 刷新UI回调接口
@@ -71,10 +55,16 @@ public abstract class BaseFragment extends Fragment implements IRefresh {
 
     @Override
     public void getNetData(boolean showDialog, boolean isRefresh) {
+        Log.e(TAG, "getNetData");
     }
 
     public LoadDialog buildDailog(String dialogMsg) {
         if (TextUtils.isEmpty(dialogMsg)) return null;
         return new LoadDialog(mActivity, dialogMsg);
     }
+
+    /**
+     * 填充和初始化view
+     */
+    protected abstract View onCreateView(LayoutInflater inflater);
 }

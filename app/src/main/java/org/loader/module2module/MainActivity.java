@@ -5,47 +5,46 @@ import android.os.Bundle;
 import android.view.View;
 
 import org.basis.common.RouterConfig;
-import org.basis.network.view.progress.SpinKitView;
-import org.basis.network.view.progress.SpriteFactory;
-import org.basis.network.view.progress.Style;
-import org.basis.network.view.progress.sprite.Sprite;
 import org.basis.ui.base.BaseActivity;
-import org.basis.utils.Logger;
 import org.basis.utils.ToastManager;
 import org.router.Router;
 
-import static org.basis.network.view.progress.Colors.colors;
-
 public class MainActivity extends BaseActivity {
-
-    private int position = 0;
-    SpinKitView itemView;
+    boolean textMode = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        itemView = findViewById(R.id.spin_kit);
-        refreshStyle();
+        titleBar = findViewById(R.id.titleBar);
+        //展示动态切换titleBar右侧显示mode： text/icon
+        titleBar.setOnRightListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        textMode = !textMode;
+                        if (textMode){
+                            titleBar.setRightText(R.string.app_name,R.drawable.selector_titlebar_right_bg);
+                        }else {
+                            titleBar.setRightIcon(R.mipmap.icon_add);
+                        }
+                    }
+                });
+
     }
 
-    private void refreshStyle() {
-        position = position % 15;
-        itemView.setBackgroundColor(colors[position % colors.length]);
-        Style style = Style.values()[position];
-        Sprite drawable = SpriteFactory.create(style);
-        itemView.setIndeterminateDrawable(drawable);
+    public void progress(View view){
+        startActivity(new Intent(mActivity, ProgressActivity.class));
     }
 
-    public void click(View view) {
-//        boolean is = Router.startService(MainActivity.this, RouterConfig.PATT_TestService);
-//        Logger.e(TAG, "is = " + is);
-//        ToastManager.show(is + "");
-        position++;
-        refreshStyle();
+    public void basecontroler(View view){
+        startActivity(new Intent(mActivity, TestAbsActivity.class));
     }
 
-    public void clickA(View view) {
-        ToastManager.show("clickA");
-        startActivity(new Intent(mActivity, NetWorkActivity.class));
+    public void routerActivity(View view){
+        ToastManager.show("router activity");
+        Router.startActivity(mActivity, RouterConfig.PATT_BActivity, "close");
+    }
+    public void routerService(View view){
+        ToastManager.show("router service");
+        Router.startService(mActivity, RouterConfig.PATT_TestService);
     }
 }

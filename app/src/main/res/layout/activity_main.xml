@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/yms_dimens_25.0_px"
-    android:paddingLeft="@dimen/yms_dimens_25.0_px"
-    android:paddingRight="@dimen/yms_dimens_25.0_px"
-    android:paddingTop="@dimen/yms_dimens_25.0_px"
-    android:gravity="center"
     android:background="@color/color_basis_bg"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <TextView
-        android:onClick="click"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:layout_centerInParent="true"
-        android:text="CLICK" />
+    <org.basis.network.view.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-    <TextView
-        android:onClick="clickA"
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:layout_marginTop="@dimen/yms_dimens_50.0_px"
-        android:layout_centerInParent="true"
-        android:text="ACTIVITY" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:onClick="progress"
+        android:text="trans progress" />
 
-    <org.basis.network.view.progress.SpinKitView
-        android:id="@+id/spin_kit"
-        style="@style/SpinKitView"
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="10dp" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:onClick="basecontroler"
+        android:text="trans use basecontroler" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:onClick="routerActivity"
+        android:text="trans router activity" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:onClick="routerService"
+        android:text="trans router service" />
 </LinearLayout>

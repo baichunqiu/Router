@@ -2,38 +2,27 @@ package org.basis.ui.base;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 
 import org.basis.network.view.LoadDialog;
 import org.basis.network.view.TitleBar;
-import org.basis.utils.ToastManager;
+import org.basis.utils.Logger;
 import org.loader.utilslib.R;
+
+import java.util.List;
 
 /**
  * @author: BaiCQ
- * @ClassName: AbsBaseActivity
+ * @ClassName: BaseActivity
  * @date: 2018/8/17
- * @Description: 基类 AbsBaseActivity的空实现
+ * @Description: 基类，AbsExitActivity的空实现
  */
-public class BaseActivity extends AbsBaseActivity {
-    public BaseActivity mActivity;
+public class BaseActivity extends AbsExitActivity implements IRefresh{
+    protected BaseActivity mActivity;
     protected TitleBar titleBar;
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        titleBar = findViewById(R.id.titleBar);
-        if (null == titleBar) return;
-        titleBar.setDefault(mActivity,TAG,"more",new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                ToastManager.show("more");
-            }
-        });
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,23 +31,19 @@ public class BaseActivity extends AbsBaseActivity {
 
     /**
      * 自定义添加action的方法
-     * @param intentfilter
+     * @param actionList 存储广播action集合
      */
     @Override
-    protected void buildFilterAction(IntentFilter intentfilter) {
-    }
+    protected void buildFilterAction(List<String> actionList) {}
 
-    /**
-     * 处理自定义action的onReceive方法
-     * @param context
-     * @param intent
-     */
     @Override
     protected void onReceive(Context context, Intent intent) {
+        Logger.e(TAG, "onReceive");
     }
 
     @Override
     public void getNetData(boolean showDialog, boolean isRefresh) {
+        Logger.e(TAG, "getNetData");
     }
 
     /**
@@ -67,6 +52,7 @@ public class BaseActivity extends AbsBaseActivity {
      */
     @Override
     public void onRefresh(Object obj) {
+        Logger.e(TAG, "onRefresh");
     }
 
     /**
@@ -75,6 +61,7 @@ public class BaseActivity extends AbsBaseActivity {
      */
     @Override
     public void onNetRefresh(String netType) {
+        Logger.e(TAG, "onNetRefresh");
     }
 
     public LoadDialog buildDailog(String dialogMsg){
@@ -82,5 +69,18 @@ public class BaseActivity extends AbsBaseActivity {
         return new LoadDialog(mActivity, dialogMsg);
     }
 
-    protected  void initView(){};
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // TODO: 2018/10/10  伪代码 默认处理 titlebar
+        if (null == titleBar) return;
+        titleBar.setTitle(TAG, R.color.color_white)
+                .setRightIcon(R.mipmap.icon_add)
+                .setOnLeftListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackCode();
+            }
+        });
+    }
 }

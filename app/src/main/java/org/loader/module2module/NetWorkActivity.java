@@ -28,8 +28,8 @@ public class NetWorkActivity extends BaseActivity implements View.OnClickListene
         initData();
     }
 
-    @Override
     public void initView() {
+        titleBar = findViewById(R.id.titleBar);
         prlv = findViewById(R.id.prlv);
         findViewById(R.id.select_image).setOnClickListener(this);
         prlv.setOnRefreshListener(new DefaultRefreshListener(this));

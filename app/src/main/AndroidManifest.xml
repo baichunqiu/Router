@@ -17,6 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ProgressActivity"/>
+        <activity android:name=".TestAbsActivity"/>
         <activity android:name=".NetWorkActivity"/>
         <activity android:name=".NetMasterActivity"/>
     </application>

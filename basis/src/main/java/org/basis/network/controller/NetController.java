@@ -20,6 +20,7 @@ public abstract class NetController<T> {
     private List<T> mNetData;
 
     /**
+     * 有返回数据集的post请求
      * @param mUrl       mUrl
      * @param params     参数 注意：不包含page
      * @param tClass     解析的实体
@@ -55,6 +56,7 @@ public abstract class NetController<T> {
     }
 
     /**
+     * 没有结果集，只有状态的post请求
      * @param mUrl       url
      * @param params     参数
      * @param dialog    进度条
@@ -64,7 +66,7 @@ public abstract class NetController<T> {
                     @Override
                     public void onSuccess(LoadDialog tag, int status) {
                         super.onSuccess(tag, status);
-                        _onResponceCallBack(mUrl, status, "");
+                        _onResponceCallBack(mUrl, status, "Success");
                     }
 
                     @Override
@@ -79,10 +81,10 @@ public abstract class NetController<T> {
     /**
      * 接口响应回调
      * @param url   接口连接
-     * @param state 状态
+     * @param stateCode 状态 1：成功 其他：失败
      * @param msg   服务器返回msg
      */
-    public abstract void _onResponceCallBack(String url, int state, String msg);
+    public abstract void _onResponceCallBack(String url, int stateCode, String msg);
 
     /**
      * 绑定数据
