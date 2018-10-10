@@ -54,21 +54,12 @@
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
     </style>
 
-
-    <style name="progressbar_loading_style">
-        <item name="android:maxWidth">50.0dip</item>
-        <item name="android:maxHeight">50.0dip</item>
-        <item name="android:indeterminateDrawable">@drawable/progressbg_loading</item>
-        <item name="android:minWidth">50.0dip</item>
-        <item name="android:minHeight">50.0dip</item>
-    </style>
-
     <style name="progressbar_refresh_style">
-        <item name="android:maxWidth">25.0dip</item>
-        <item name="android:maxHeight">25.0dip</item>
-        <item name="android:indeterminateDrawable">@drawable/progressbg_loading</item>
-        <item name="android:minWidth">25.0dip</item>
-        <item name="android:minHeight">25.0dip</item>
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:minWidth">25dip</item>
+        <item name="android:maxWidth">25dip</item>
+        <item name="android:minHeight">25dip</item>
+        <item name="android:maxHeight">25dip</item>
     </style>
 
     <style name="main_text_blue_green_14">
@@ -76,11 +67,25 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="main_text_blue_green_12">
+        <item name="android:textColor">#00BFA5</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="progressbar_loading_style">
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:minWidth">30dip</item>
+        <item name="android:maxWidth">30dip</item>
+        <item name="android:minHeight">30dip</item>
+        <item name="android:maxHeight">30dip</item>
+    </style>
+
     <style name="SpinKitView">
         <item name="android:indeterminateOnly">true</item>
-        <item name="android:minWidth">60dip</item>
-        <item name="android:maxWidth">60dip</item>
-        <item name="android:minHeight">60dip</item>
-        <item name="android:maxHeight">60dip</item>
+        <item name="android:minWidth">40dip</item>
+        <item name="android:maxWidth">40dip</item>
+        <item name="android:minHeight">40dip</item>
+        <item name="android:maxHeight">40dip</item>
     </style>
+
 </resources>

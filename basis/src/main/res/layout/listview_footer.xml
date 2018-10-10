@@ -1,34 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="horizontal"
-    android:background="@android:color/white"
-    android:padding="10dp" >
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginRight="10dp"
-        style="@style/progressbar_loading_style" />
-    <TextView
-        android:id="@+id/loadFull"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="5dp"
-        android:text="@string/load_full"
-        android:visibility="gone" />
+    android:padding="@dimen/yms_dimens_20.0_px">
 
-    <TextView
-        android:id="@+id/noData"
+    <org.basis.network.view.progress.SpinKitView
+        android:id="@+id/loading"
+        style="@style/progressbar_refresh_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="5dp"
-        android:text="@string/no_data"
-        android:visibility="gone" />
+        android:layout_marginRight="10dp"
+        app:SpinKit_Color="@color/color_green_blue"
+        android:padding="@dimen/yms_dimens_10.0_px" />
 
     <TextView
         android:id="@+id/more"

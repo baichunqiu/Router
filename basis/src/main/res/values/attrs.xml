@@ -28,7 +28,6 @@
     </declare-styleable>
 
     <attr name="SpinKitViewStyle" format="reference" />
-
     <declare-styleable name="SpinKitView">
         <attr name="SpinKit_Style">
             <enum name="RotatingPlane" value="0" />
@@ -60,7 +59,7 @@
 
         <attr name="right_text" format="string" />
         <attr name="right_size" format="dimension" />
-        <attr name="right_background" format="reference|color"/>
+        <attr name="right_background" format="reference|color" />
 
         <attr name="titlebar_height_percent" format="float" />
         <attr name="titlebar_margin_percent" format="float" />

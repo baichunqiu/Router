@@ -18,11 +18,17 @@ import android.widget.TextView;
 
 import org.basis.network.listener.refresh.OnLoadListener;
 import org.basis.network.listener.refresh.OnRefreshListener;
+import org.basis.network.view.progress.SpriteFactory;
+import org.basis.network.view.progress.Style;
+import org.basis.network.view.progress.sprite.Sprite;
 import org.basis.utils.DateUtil;
 import org.basis.utils.Logger;
+import org.basis.utils.ResourceUtil;
 import org.loader.utilslib.R;
 
 import java.util.Date;
+
+import static org.basis.network.view.progress.Colors.colors;
 
 
 /**
@@ -39,12 +45,9 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
     private final static int REFRESHING = 2;//正在刷新
     private final static int DONE = 3;//默认
     private final static int LOADING = 4;//加载更多的状态
-
     // 实际的padding的距离与界面上偏移距离的比例
     private final static int RATIO = 3;
-
     private LayoutInflater inflater;
-
     private LinearLayout headView;
     private TextView tipsTextview;
     private TextView lastUpdatedTextView;
@@ -52,19 +55,12 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
     private ProgressBar progressBar;
     private RotateAnimation animation;
     private RotateAnimation reverseAnimation;
-
     // 用于保证startY的值在一个完整的touch事件中只被记录一次
     private boolean isRecored;
-
-    private int headContentWidth;
     private int headContentHeight;
-
     private int startY;
-
     public int state;
-
     private boolean isBack;
-
     private OnRefreshListener refreshListener;
     //是否可以刷新
     private boolean isRefreshable;
@@ -74,19 +70,11 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
         init(context);
     }
 
-    ImageView view;
-
-    public void setView(ImageView view) {
-        this.view = view;
-    }
-
     private void init(Context context) {
         setCacheColorHint(context.getResources().getColor(android.R.color.transparent));
         inflater = LayoutInflater.from(context);
         // 给listview 添加上啦加载更多的功能
         footer = inflater.inflate(R.layout.listview_footer, null);
-        loadFull = (TextView) footer.findViewById(R.id.loadFull);
-        noData = (TextView) footer.findViewById(R.id.noData);
         more = (TextView) footer.findViewById(R.id.more);
         loading = (ProgressBar) footer.findViewById(R.id.loading);
         // 默认隐藏上啦刷新
@@ -99,8 +87,6 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
 
         measureView(headView);
         headContentHeight = headView.getMeasuredHeight();
-        headContentWidth = headView.getMeasuredWidth();
-
         // 隐藏 headview 的高度
         headView.setPadding(0, -1 * headContentHeight, 0, 0);
         headView.invalidate();
@@ -123,6 +109,26 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
 
         state = DONE;
         isRefreshable = false;
+        refreshStyle(progressBar);
+        refreshStyle(loading);
+    }
+    private int styleIndex = 2;
+    /**
+     * 刷新style
+     */
+    private void refreshStyle(final ProgressBar progress) {
+        styleIndex = styleIndex % 15;
+//        progress.setBackgroundColor(ResourceUtil.getColor(R.color.color_green_blue_light));
+        Style style = Style.values()[styleIndex];
+        Sprite drawable = SpriteFactory.create(style);
+        progress.setIndeterminateDrawable(drawable);
+        progress.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                styleIndex ++;
+                refreshStyle(progress);
+            }
+        });
     }
 
     public void onScroll(AbsListView arg0, int firstVisiableItem, int arg2, int arg3) {
@@ -294,7 +300,6 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
         changeHeaderViewByState();
     }
 
-
     private void hideFooter() {
         footer.setVisibility(View.GONE);
 
@@ -302,10 +307,8 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
 
     private void showFooter() {
         footer.setVisibility(View.VISIBLE);
-        loadFull.setVisibility(View.GONE);
         loading.setVisibility(View.VISIBLE);
         more.setVisibility(View.VISIBLE);
-        noData.setVisibility(View.GONE);
     }
 
     private void onRefresh() {
@@ -351,28 +354,12 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
     private int firstItemIndex;
     private int scrollStates;
 
-    private TextView noData;
-    private TextView loadFull;
     private TextView more;
     private ProgressBar loading;
 
     @Override
     public void onScrollStateChanged(AbsListView view1, int scrollState) {
-
         this.scrollStates = scrollState;
-        if (view != null) {
-            switch (scrollState) {
-                case OnScrollListener.SCROLL_STATE_IDLE:// 是当屏幕停止滚动时
-                    view.setVisibility(View.VISIBLE);
-                    break;
-                case OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:// 滚动时
-                    view.setVisibility(View.GONE);
-                    break;
-                case OnScrollListener.SCROLL_STATE_FLING:// 是当用户由于之前划动屏幕并抬起手指，屏幕产生惯性滑动时
-                    view.setVisibility(View.GONE);
-                    break;
-            }
-        }
         ifNeedLoad(view1, scrollStates);
     }
 
@@ -398,6 +385,7 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
     public void onLoad() {
         if (onLoadListener != null) {
             loading.startAnimation(reverseAnimation);
+            setSelection(getAdapter().getCount());
             onLoadListener.onLoad();
         }
     }

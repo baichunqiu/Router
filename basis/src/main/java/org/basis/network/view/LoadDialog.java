@@ -9,7 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.basis.network.view.progress.SpriteFactory;
+import org.basis.network.view.progress.Style;
+import org.basis.network.view.progress.sprite.Sprite;
+import org.basis.utils.ResourceUtil;
 import org.loader.utilslib.R;
+
+import static org.basis.network.view.progress.Colors.colors;
 
 /**
  * @author: BaiCQ
@@ -22,6 +28,7 @@ public class LoadDialog extends Dialog {
     private TextView textView;
     private String dialogMsg;
     private ProgressBar progressBar;
+    private int styleIndex = 2;
 
     public LoadDialog(Activity activity) {
         this(activity, "");
@@ -32,6 +39,7 @@ public class LoadDialog extends Dialog {
         dialog = new Dialog(activity, R.style.CustomProgressDialog);
         rootView = LayoutInflater.from(activity).inflate(R.layout.net_layout_load_dialog, null);
         progressBar = rootView.findViewById(R.id.prgressBar);
+        refreshStyle();
         textView = rootView.findViewById(R.id.tv_load_msg);
         if (TextUtils.isEmpty(dialogMsg)){
             dialogMsg = activity.getString(R.string.net_loading);
@@ -47,6 +55,16 @@ public class LoadDialog extends Dialog {
         if (null != dialog){
             dialog.show();
         }
+    }
+
+    /**
+     * 刷新style
+     */
+    private void refreshStyle() {
+        styleIndex = styleIndex % 15;
+        Style style = Style.values()[styleIndex];
+        Sprite drawable = SpriteFactory.create(style);
+        progressBar.setIndeterminateDrawable(drawable);
     }
 
     @Override

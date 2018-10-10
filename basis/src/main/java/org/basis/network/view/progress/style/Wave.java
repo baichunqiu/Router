@@ -17,13 +17,14 @@ public class Wave extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
+        int modifyDelay = 6;//修改 添加动画开始延迟时间
         WaveItem[] waveItems = new WaveItem[5];
         for (int i = 0; i < waveItems.length; i++) {
             waveItems[i] = new WaveItem();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                waveItems[i].setAnimationDelay(600 + i * 100);
+                waveItems[i].setAnimationDelay(600 / modifyDelay + i * 100);
             } else {
-                waveItems[i].setAnimationDelay(-1200 + i * 100);
+                waveItems[i].setAnimationDelay(-1200 / modifyDelay + i * 100);
             }
 
         }

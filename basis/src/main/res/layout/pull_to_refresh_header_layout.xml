@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
     android:orientation="horizontal"
     android:gravity="center">
 
@@ -17,17 +17,15 @@
         android:src="@mipmap/pull_arrow_icon"
         android:visibility="gone" />
 
-    <!-- 进度条 -->
-    <ProgressBar
+    <org.basis.network.view.progress.SpinKitView
         android:id="@+id/head_progressBar"
         style="@style/progressbar_refresh_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_marginRight="10dp"
-        android:indeterminateDuration="800"
-        android:visibility="visible" />
+        android:layout_marginRight="@dimen/yms_dimens_20.0_px"
+        android:padding="@dimen/yms_dimens_15.0_px"
+        app:SpinKit_Color="@color/color_green_blue"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -38,18 +36,18 @@
         <!-- 提示 -->
         <TextView
             android:id="@+id/head_tipsTextView"
-            style="@style/main_text_blue_green_14"
+            style="@style/main_text_blue_green_12"
             android:layout_width="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/yms_dimens_20.0_px"
             android:layout_height="wrap_content"
             android:text="@string/pull_down_refresh" />
 
         <!-- 最近更新 -->
         <TextView
             android:id="@+id/head_lastUpdatedTextView"
-            style="@style/main_text_blue_green_14"
+            style="@style/main_text_blue_green_12"
             android:layout_width="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/yms_dimens_20.0_px"
             android:layout_height="wrap_content"
             android:text="@string/last_update" />
     </LinearLayout>

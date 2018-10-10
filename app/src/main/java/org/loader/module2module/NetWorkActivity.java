@@ -52,7 +52,6 @@ public class NetWorkActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void getNetData(boolean showDialog, boolean isRefresh) {
-        super.getNetData(showDialog,isRefresh);
         Map params = new HashMap<String, String>(2);
         // 作品评论列表
         String url ="https://alaya2.sabinetek.com/response/list";
