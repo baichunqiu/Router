@@ -118,17 +118,9 @@ public class PullToRefreshListView extends BaseListView implements OnScrollListe
      */
     private void refreshStyle(final ProgressBar progress) {
         styleIndex = styleIndex % 15;
-//        progress.setBackgroundColor(ResourceUtil.getColor(R.color.color_green_blue_light));
         Style style = Style.values()[styleIndex];
         Sprite drawable = SpriteFactory.create(style);
         progress.setIndeterminateDrawable(drawable);
-        progress.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                styleIndex ++;
-                refreshStyle(progress);
-            }
-        });
     }
 
     public void onScroll(AbsListView arg0, int firstVisiableItem, int arg2, int arg3) {
