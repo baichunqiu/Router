@@ -14,42 +14,44 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical"
+        style="@style/main_item_btn_blue"
         android:onClick="progress"
         android:text="trans progress" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical"
+        style="@style/main_item_btn_blue"
         android:onClick="basecontroler"
         android:text="trans use basecontroler" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical"
+        style="@style/main_item_btn_blue"
         android:onClick="routerActivity"
         android:text="trans router activity" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical"
+        style="@style/main_item_btn_blue"
         android:onClick="routerService"
         android:text="trans router service" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dimens_25px"
+        android:background="@color/color_gray"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/main_text_btn_blue"
+            android:layout_margin="@dimen/dimens_40px"
+            android:text="@string/app_name" />
+
+        <TextView
+            style="@style/main_item_margin"
+            android:layout_marginTop="@dimen/dimens_25px"
+            android:background="@drawable/selector_btn_bg_blue"
+            android:text="@string/app_name"
+            android:padding="@dimen/dimens_25px"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/font_size_16sp" />
+    </LinearLayout>
 </LinearLayout>

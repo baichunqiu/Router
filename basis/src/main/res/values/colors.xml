@@ -3,7 +3,7 @@
     <color name="color_basis_bg">#efeff4</color>
     <color name="color_title_bg">#4a4f64</color>
     <color name="color_title_bg_press">#363B4E</color>
-    <color name="color_green_blue">#00BFA5</color>
+    <color name="color_blue_green">#00BFA5</color>
     <color name="color_green">#09BB07</color>
     <color name="color_red">#FF0000</color>
     <color name="color_accent">#FF4081</color>
@@ -12,9 +12,14 @@
     <color name="color_primaryDark">#303F9F</color>
     <color name="color_black">#000000</color>
     <color name="color_white">#FFFFFF</color>
-
     <color name="color_gray">#999999</color>
+
+
+    <color name="color_font_white">@color/color_white</color>
     <color name="color_font_black">#555555</color>
     <color name="color_font_blackDark">#333333</color>
+    <color name="color_font_gray">@color/color_gray</color>
+    <color name="color_font_green">@color/color_green</color>
+    <color name="color_font_blue_green">@color/color_blue_green</color>
 
 </resources>

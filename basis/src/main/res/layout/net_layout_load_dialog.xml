@@ -17,7 +17,7 @@
         android:id="@+id/tv_load_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/yms_dimens_20.0_px"
+        android:layout_marginTop="@dimen/dimens_20px"
         android:text="@string/net_loading"
         android:textColor="@color/color_white"
         android:textSize="16sp" />

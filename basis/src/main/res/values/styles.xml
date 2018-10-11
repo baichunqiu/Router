@@ -1,22 +1,21 @@
 <resources>
 
+    <!--  ****************  Activity 主题 style  **************** -->
+
     <style name="IMTheme.Basic" parent="android:Theme.Light">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <!-- 统一切换Theme right in left out-->
     <style name="IMTheme.Transparent_Right" parent="@style/IMTheme.Basic">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/Animation_right_to_left</item>
     </style>
 
     <!-- Theme left in right out-->
     <style name="IMTheme.Transparent_Left" parent="@style/IMTheme.Basic">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsTranslucent">true</item>
-
         <item name="android:windowAnimationStyle">@style/Animation_left_to_right</item>
     </style>
 
@@ -41,10 +40,7 @@
         <item name="android:activityCloseExitAnimation">@anim/slide_left_out</item>
     </style>
 
-    <style name="CustomProgressDialog" parent="@style/CustomDialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowNoTitle">true</item>
-    </style>
+    <!--  ****************  Dialog  主题 style  **************** -->
 
     <style name="CustomDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -54,22 +50,19 @@
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
     </style>
 
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!--  ****************  Progressbar  style  **************** -->
+
     <style name="progressbar_refresh_style">
         <item name="android:indeterminateOnly">true</item>
         <item name="android:minWidth">25dip</item>
         <item name="android:maxWidth">25dip</item>
         <item name="android:minHeight">25dip</item>
         <item name="android:maxHeight">25dip</item>
-    </style>
-
-    <style name="main_text_blue_green_14">
-        <item name="android:textColor">#00BFA5</item>
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="main_text_blue_green_12">
-        <item name="android:textColor">#00BFA5</item>
-        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="progressbar_loading_style">
@@ -80,12 +73,118 @@
         <item name="android:maxHeight">30dip</item>
     </style>
 
+    <!--SpinKitView 自定义 -->
     <style name="SpinKitView">
         <item name="android:indeterminateOnly">true</item>
         <item name="android:minWidth">40dip</item>
         <item name="android:maxWidth">40dip</item>
         <item name="android:minHeight">40dip</item>
         <item name="android:maxHeight">40dip</item>
+    </style>
+
+    <!--  ****************  自定义 文字相关style  **************** -->
+
+    <!--white 白色字体 style-->
+    <style name="main_text_white">
+        <item name="android:textColor">@color/color_font_white</item>
+    </style>
+
+    <style name="main_text_white_16" parent="main_text_white">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="main_text_white_14" parent="main_text_white">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="main_text_white_12" parent="main_text_white">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <!--black 黑色字体 style-->
+    <style name="main_text_black">
+        <item name="android:textColor">@color/color_font_black</item>
+    </style>
+
+    <style name="main_text_black_16" parent="main_text_black">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="main_text_black_14" parent="main_text_black">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="main_text_black_12" parent="main_text_black">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <!--gray 灰色字体 style-->
+    <style name="main_text_gray">
+        <item name="android:textColor">@color/color_font_gray</item>
+    </style>
+
+    <style name="main_text_gray_16" parent="main_text_gray">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="main_text_gray_14" parent="main_text_gray">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="main_text_gray_12" parent="main_text_gray">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <!--green 绿色字体 style-->
+    <style name="main_text_green">
+        <item name="android:textColor">@color/color_font_green</item>
+    </style>
+
+    <style name="main_text_green_16" parent="main_text_green">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="main_text_green_14" parent="main_text_green">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="main_text_green_12" parent="main_text_green">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <!--blue_green 蓝绿色字体 style-->
+    <style name="main_text_blue_green">
+        <item name="android:textColor">@color/color_font_blue_green</item>
+    </style>
+
+    <style name="main_text_blue_green_16" parent="main_text_blue_green">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="main_text_blue_green_14" parent="main_text_blue_green">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="main_text_blue_green_12" parent="main_text_blue_green">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <!--  ****************  自定义 统一风格控件style  **************** -->
+    <!--设置内边距btn style-->
+    <style name="main_btn_padding" parent="main_text_white_16">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/dimens_9px</item>
+        <item name="android:paddingBottom">@dimen/dimens_9px</item>
+        <item name="android:paddingLeft">@dimen/dimens_15px</item>
+        <item name="android:paddingRight">@dimen/dimens_15px</item>
+    </style>
+
+    <style name="main_item_margin" parent="main_text_white_16">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/margin_main_item</item>
+        <item name="android:layout_marginRight">@dimen/margin_main_item</item>
     </style>
 
 </resources>

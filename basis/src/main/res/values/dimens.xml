@@ -13,20 +13,30 @@
     <dimen name="font_size_10sp">10sp</dimen>
 
     <!--margin 边距 小边距使用 大边距转换成percent -->
-    <dimen name="yms_dimens_1.0_px">0.5dp</dimen>
-    <dimen name="yms_dimens_2.0_px">1.0dp</dimen>
-    <dimen name="yms_dimens_3.0_px">1.5dp</dimen>
-    <dimen name="yms_dimens_4.0_px">2.0dp</dimen>
-    <dimen name="yms_dimens_5.0_px">2.5dp</dimen>
-    <dimen name="yms_dimens_6.0_px">3.0dp</dimen>
-    <dimen name="yms_dimens_7.0_px">3.5dp</dimen>
-    <dimen name="yms_dimens_9.0_px">4.0dp</dimen>
-    <dimen name="yms_dimens_10.0_px">5.0dp</dimen>
-    <dimen name="yms_dimens_12.0_px">6.0dp</dimen>
-    <dimen name="yms_dimens_15.0_px">7.5dp</dimen>
-    <dimen name="yms_dimens_20.0_px">10.0dp</dimen>
-    <dimen name="yms_dimens_25.0_px">12.5dp</dimen>
-    <dimen name="yms_dimens_30.0_px">15.0dp</dimen>
-    <dimen name="yms_dimens_40.0_px">20.0dp</dimen>
-    <dimen name="yms_dimens_50.0_px">25.0dp</dimen>
+    <dimen name="dimens_1px">0.5dp</dimen>
+    <dimen name="dimens_2px">1.0dp</dimen>
+    <dimen name="dimens_3px">1.5dp</dimen>
+    <dimen name="dimens_4px">2.0dp</dimen>
+    <dimen name="dimens_5px">2.5dp</dimen>
+    <dimen name="dimens_6px">3.0dp</dimen>
+    <dimen name="dimens_7px">3.5dp</dimen>
+    <dimen name="dimens_9px">4.0dp</dimen>
+    <dimen name="dimens_10px">5.0dp</dimen>
+    <dimen name="dimens_12px">6.0dp</dimen>
+    <dimen name="dimens_15px">7.5dp</dimen>
+    <dimen name="dimens_16px">8.0dp</dimen>
+    <dimen name="dimens_18px">9.0dp</dimen>
+    <dimen name="dimens_20px">10.0dp</dimen>
+    <dimen name="dimens_25px">12.5dp</dimen>
+    <dimen name="dimens_30px">15.0dp</dimen>
+    <dimen name="dimens_35px">17.5dp</dimen>
+    <dimen name="dimens_40px">20.0dp</dimen>
+    <dimen name="dimens_50px">25.0dp</dimen>
+    <dimen name="dimens_60px">30.0dp</dimen>
+
+    <!-- **************** 项目 通配 边距 **************** -->
+    <!--主界面item的边距-->
+    <dimen name="margin_main_item">@dimen/dimens_40px</dimen>
+    <!--分割线的高/宽-->
+    <dimen name="main_divide">0.3dp</dimen>
 </resources>

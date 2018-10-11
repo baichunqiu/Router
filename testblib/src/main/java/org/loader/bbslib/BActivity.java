@@ -23,7 +23,7 @@ public class BActivity extends BaseActivity {
         TextView tv = new TextView(this);
         tv.setTextSize(30);
         tv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        tv.setBackgroundResource(R.color.color_green_blue);
+        tv.setBackgroundResource(R.color.color_blue_green);
         tv.setGravity(Gravity.CENTER);
         tv.setText("BActivity : testb");
         setContentView(tv);

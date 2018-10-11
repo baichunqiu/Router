@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="horizontal"
-    android:padding="@dimen/yms_dimens_20.0_px">
+    android:padding="@dimen/dimens_20px">
 
     <org.basis.network.view.progress.SpinKitView
         android:id="@+id/loading"
@@ -13,8 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
-        app:SpinKit_Color="@color/color_green_blue"
-        android:padding="@dimen/yms_dimens_10.0_px" />
+        app:SpinKit_Color="@color/color_blue_green"
+        android:padding="@dimen/dimens_10px" />
 
     <TextView
         android:id="@+id/more"

@@ -22,9 +22,9 @@
         style="@style/progressbar_refresh_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/yms_dimens_20.0_px"
-        android:padding="@dimen/yms_dimens_15.0_px"
-        app:SpinKit_Color="@color/color_green_blue"
+        android:layout_marginRight="@dimen/dimens_20px"
+        android:padding="@dimen/dimens_15px"
+        app:SpinKit_Color="@color/color_blue_green"
         android:layout_gravity="center"/>
 
     <LinearLayout
@@ -38,7 +38,7 @@
             android:id="@+id/head_tipsTextView"
             style="@style/main_text_blue_green_12"
             android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/yms_dimens_20.0_px"
+            android:layout_marginTop="@dimen/dimens_20px"
             android:layout_height="wrap_content"
             android:text="@string/pull_down_refresh" />
 
@@ -47,7 +47,7 @@
             android:id="@+id/head_lastUpdatedTextView"
             style="@style/main_text_blue_green_12"
             android:layout_width="wrap_content"
-            android:layout_marginBottom="@dimen/yms_dimens_20.0_px"
+            android:layout_marginBottom="@dimen/dimens_20px"
             android:layout_height="wrap_content"
             android:text="@string/last_update" />
     </LinearLayout>
