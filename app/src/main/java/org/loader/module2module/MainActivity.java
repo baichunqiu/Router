@@ -2,10 +2,14 @@ package org.loader.module2module;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 
 import org.basis.common.RouterConfig;
 import org.basis.ui.base.BaseActivity;
+import org.basis.utils.Logger;
+import org.basis.utils.MediaPlayerHelper;
+import org.basis.utils.SoundPoolHelper;
 import org.basis.utils.ToastManager;
 import org.router.Router;
 
@@ -46,5 +50,15 @@ public class MainActivity extends BaseActivity {
     public void routerService(View view){
         ToastManager.show("router service");
         Router.startService(mActivity, RouterConfig.PATT_TestService);
+    }
+    private MediaPlayerHelper mediaPlayerHelper;
+    public void mediaHelper(View view){
+        mediaPlayerHelper = new MediaPlayerHelper(mActivity,R.raw.wx_shake);
+        mediaPlayerHelper.start();
+    }
+    private SoundPoolHelper soundPoolHelper;
+    public void soundPoolHelper(View view){
+        soundPoolHelper = new SoundPoolHelper(mActivity,R.raw.wx_shake,5,2500);
+        soundPoolHelper.start();
     }
 }
