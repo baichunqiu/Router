@@ -2,12 +2,10 @@ package org.loader.module2module;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 
 import org.basis.common.RouterConfig;
 import org.basis.ui.base.BaseActivity;
-import org.basis.utils.Logger;
 import org.basis.utils.MediaPlayerHelper;
 import org.basis.utils.SoundPoolHelper;
 import org.basis.utils.ToastManager;
