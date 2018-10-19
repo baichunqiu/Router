@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/Router.iml" filepath="$PROJECT_DIR$/Router.iml" />
       <module fileurl="file://$PROJECT_DIR$/annohelper/annohelper.iml" filepath="$PROJECT_DIR$/annohelper/annohelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autosize/autosize.iml" filepath="$PROJECT_DIR$/autosize/autosize.iml" />
       <module fileurl="file://$PROJECT_DIR$/basis/basis.iml" filepath="$PROJECT_DIR$/basis/basis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jiaozivideoplayer/jiaozivideoplayer.iml" filepath="$PROJECT_DIR$/jiaozivideoplayer/jiaozivideoplayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/router/router.iml" filepath="$PROJECT_DIR$/router/router.iml" />
       <module fileurl="file://$PROJECT_DIR$/testalib/testalib.iml" filepath="$PROJECT_DIR$/testalib/testalib.iml" />
       <module fileurl="file://$PROJECT_DIR$/testblib/testblib.iml" filepath="$PROJECT_DIR$/testblib/testblib.iml" />

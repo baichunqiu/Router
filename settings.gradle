@@ -1,1 +1,1 @@
-include ':app', ':basis', ':router', ':testalib', ':testblib', ':annohelper'
+include ':app', ':basis', ':router', ':testalib', ':testblib', ':annohelper', ':autosize', ':jiaozivideoplayer'

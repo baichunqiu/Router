@@ -7,7 +7,7 @@
     </style>
 
     <style name="main_item_btn_blue" parent="main_item_margin">
-        <item name="android:layout_marginTop">@dimen/dimens_40px</item>
+        <item name="android:layout_marginTop">@dimen/dimens_20px</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:padding">@dimen/dimens_25px</item>
         <item name="android:textSize">@dimen/font_size_16sp</item>

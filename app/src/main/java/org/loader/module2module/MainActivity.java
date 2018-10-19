@@ -9,6 +9,7 @@ import org.basis.ui.base.BaseActivity;
 import org.basis.utils.MediaPlayerHelper;
 import org.basis.utils.SoundPoolHelper;
 import org.basis.utils.ToastManager;
+import org.loader.module2module.media.ActivityListView;
 import org.router.Router;
 
 public class MainActivity extends BaseActivity {
@@ -58,5 +59,12 @@ public class MainActivity extends BaseActivity {
     public void soundPoolHelper(View view){
         soundPoolHelper = new SoundPoolHelper(mActivity,R.raw.wx_shake,5,2500);
         soundPoolHelper.start();
+    }
+
+    public void adapterAutoSize(View view){
+        startActivity(new Intent(mActivity, AutoSizeActivity.class));
+    }
+    public void videoPlayer(View view){
+        startActivity(new Intent(mActivity, ActivityListView.class));
     }
 }

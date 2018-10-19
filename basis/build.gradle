@@ -35,4 +35,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
     //图片加载库
     compile 'com.squareup.picasso:picasso:2.3.2'
+//    compile 'com.github.bumptech.glide:glide:4.6.1'
+    //屏幕适配库
+//    compile 'me.jessyan:autosize:1.0.0'
 }

@@ -38,4 +38,6 @@ dependencies {
     }else{
         compile project(':basis')
     }
+    compile project(':autosize')
+    compile project(':jiaozivideoplayer')
 }
