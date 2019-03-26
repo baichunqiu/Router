@@ -1,9 +1,8 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         multiDexEnabled true
         applicationId "org.loader.module2module"
@@ -22,22 +21,25 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.dagger:dagger:2.6'
+    annotationProcessor "com.google.dagger:dagger-compiler:2.6"
 //   ------------------------------模板配置-------------------
     //路由库
-    compile project(':router')
+    implementation project(':router')
     //注解依赖
-    compile project(':annohelper')
-    apt project(':annohelper')
+    implementation project(':annohelper')
+    annotationProcessor project(':annohelper')
+
 
 //  ------------------------------模板配置-------------------
 
     if (!debug.toBoolean()) {
-        compile project(':testalib')
-        compile project(':testblib')
+        implementation project(':testalib')
+        implementation project(':testblib')
     }else{
-        compile project(':basis')
+        implementation project(':basis')
     }
-    compile project(':autosize')
-    compile project(':jiaozivideoplayer')
+    implementation project(':autosize')
+    implementation project(':jiaozivideoplayer')
 }

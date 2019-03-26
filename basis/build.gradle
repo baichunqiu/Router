@@ -2,8 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
-
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -23,19 +21,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26+'
-    testCompile 'junit:junit:4.12'
+    androidTestImplementation 'junit:junit:4.12'
+
+    api 'com.android.support:appcompat-v7:26+'
     //网络库
-    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
-    compile 'com.zhy:okhttputils:2.6.2'
-    compile 'com.google.code.gson:gson:2.8.1'
+    api 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    api 'com.zhy:okhttputils:2.6.2'
+    api 'com.google.code.gson:gson:2.8.1'
     //图片加载库
-    compile 'com.squareup.picasso:picasso:2.3.2'
-//    compile 'com.github.bumptech.glide:glide:4.6.1'
-    //屏幕适配库
-//    compile 'me.jessyan:autosize:1.0.0'
+    api 'com.squareup.picasso:picasso:2.3.2'
 }
